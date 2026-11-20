@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Saya - Fariz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        /* perpindahan menu jadi mulus */
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f0f2f5;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+        background: linear-gradient(135deg, #4f46e5, #9333ea);
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    header h1 {
+        font-size: 2.4rem;
+        margin-bottom: 8px;
+    }
+
+    header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+        background: #1f2937;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 16px 22px;
+        transition: background 0.3s;
+    }
+
+    nav a:hover {
+        background: #4f46e5;
+    }
+
+    /* ===== KONTEN / CARD ===== */
+    main {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        scroll-margin-top: 70px;
+        /* supaya tidak ketutup navbar */
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+        background: #ddd;
+    }
+
+    .isi {
+        padding: 20px;
+    }
+
+    .isi h2 {
+        color: #4f46e5;
+        margin-bottom: 8px;
+    }
+
+    .isi h3 {
+        margin-bottom: 8px;
+    }
+
+    .info {
+        margin-bottom: 10px;
+    }
+
+    .info td {
+        padding: 2px 6px 2px 0;
+        vertical-align: top;
+    }
+
+    .info td:first-child {
+        font-weight: bold;
+    }
+
+    .tombol {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 10px 18px;
+        background: #4f46e5;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background 0.3s;
+    }
+
+    .tombol:hover {
+        background: #3730a3;
+    }
+
+    /* Card media sosial memanjang penuh */
+    #sosmed {
+        grid-column: 1 / -1;
+    }
+
+    .daftar-sosmed {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 12px;
+    }
+
+    .daftar-sosmed a {
+        display: inline-block;
+        padding: 10px 18px;
+        background: #eef2ff;
+        color: #4f46e5;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    .daftar-sosmed a:hover {
+        background: #4f46e5;
+        color: white;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+        background: #1f2937;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+    }
+
+    /* ===== RESPONSIF (HP) ===== */
+    @media (max-width: 700px) {
+        main {
+            grid-template-columns: 1fr;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+    }
+</style>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <h1>Website Profil Fariz</h1>
+        <p>Final Project Kelas Prabootcamp</p>
+    </header>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav>
+        <ul>
+            <li><a href="#tempat">Tempat Impian</a></li>
+            <li><a href="#tentang">Tentang Saya</a></li>
+            <li><a href="#lampu">Project Lampu</a></li>
+            <li><a href="#sosmed">Media Sosial</a></li>
+        </ul>
+    </nav>
+
+    <!-- ================= KONTEN UTAMA ================= -->
+    <main>
+
+        <!-- CARD 1: TEMPAT IMPIAN -->
+        <section class="card" id="tempat">
+            <!-- Ganti nama file gambar sesuai gambar tempat impianmu -->
+            <img src="../img/tempat-impian.jpg" alt="Tempat Impian">
+            <div class="isi">
+                <h2>Tempat Impian</h2>
+                <h3>Jepang (Kyoto)</h3>
+                <p>
+                    Saya ingin sekali mengunjungi Kyoto, Jepang. Kota ini terkenal dengan
+                    kuil-kuil tradisional, taman yang asri, dan suasana yang tenang.
+                    Saya juga ingin melihat bunga sakura saat musim semi.
+                </p>
+            </div>
+        </section>
+
+        <!-- CARD 2: TENTANG SAYA -->
+        <section class="card" id="tentang">
+            <!-- Ganti nama file gambar dengan fotomu -->
+            <img src="../img/foto-saya.jpg" alt="Foto Saya">
+            <div class="isi">
+                <h2>Tentang Saya</h2>
+                <table class="info">
+                    <tr>
+                        <td>Nama</td>
+                        <td>: Fariz</td>
+                    </tr>
+                    <tr>
+                        <td>Umur</td>
+                        <td>: 18 tahun</td>
+                    </tr>
+                    <tr>
+                        <td>Hobi</td>
+                        <td>: Ngoding, main game, nonton video</td>
+                    </tr>
+                    <tr>
+                        <td>Cita-cita</td>
+                        <td>: Menjadi web developer</td>
+                    </tr>
+                    <tr>
+                        <td>Asal</td>
+                        <td>: Semarang, Jawa Tengah</td>
+                    </tr>
+                </table>
+                <p>Saya sedang belajar HTML, CSS, dan JavaScript di kelas Prabootcamp.</p>
+            </div>
+        </section>
+
+        <!-- CARD 3: PROJECT KONTROL LAMPU -->
+        <section class="card" id="lampu">
+            <img src="../img/lampuON.jpg" alt="Ilustrasi Project Kontrol Lampu">
+            <div class="isi">
+                <h2>Project Kontrol Lampu</h2>
+
+                <p>
+                    Project ini adalah halaman web untuk mengontrol lampu. Saat tombol
+                    "Nyalakan Lampu" diklik, gambar lampu berubah menjadi menyala,
+                    lalu lampu akan mati otomatis setelah beberapa detik dengan
+                    tampilan timer hitung mundur. Dibuat menggunakan HTML dan JavaScript.
+                </p>
+                <a class="tombol" href="kontrol.html">Lihat Project</a>
+            </div>
+        </section>
+
+        <!-- CARD 4: INFORMASI MEDIA SOSIAL -->
+        <section class="card" id="sosmed">
+            <div class="isi penuh">
+                <h2>Informasi Media Sosial</h2>
+                <p>Kamu bisa menemukan saya di media sosial berikut:</p>
+                <ul class="daftar-sosmed">
+                    <li><a href="https://www.instagram.com/username_kamu" target="_blank">📸 Instagram</a></li>
+                    <li><a href="https://www.tiktok.com/@username_kamu" target="_blank">🎵 TikTok</a></li>
+                    <li><a href="https://github.com/username_kamu" target="_blank">💻 GitHub</a></li>
+                    <li><a href="https://www.youtube.com/@username_kamu" target="_blank">▶️ YouTube</a></li>
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>&copy; 2026 Fariz. Dibuat untuk Final Project Kelas Prabootcamp.</p>
+    </footer>
+
+</body>
+
+</html>

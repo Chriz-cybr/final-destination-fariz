@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        /* perpindahan menu jadi mulus */
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f0f2f5;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+        background: linear-gradient(135deg, #4f46e5, #9333ea);
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    header h1 {
+        font-size: 2.4rem;
+        margin-bottom: 8px;
+    }
+
+    header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+        background: #1f2937;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 16px 22px;
+        transition: background 0.3s;
+    }
+
+    nav a:hover {
+        background: #4f46e5;
+    }
+
+    /* ===== KONTEN / CARD ===== */
+    main {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        scroll-margin-top: 70px;
+        /* supaya tidak ketutup navbar */
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+        background: #ddd;
+    }
+
+    .isi {
+        padding: 20px;
+    }
+
+    .isi h2 {
+        color: #4f46e5;
+        margin-bottom: 8px;
+    }
+
+    .isi h3 {
+        margin-bottom: 8px;
+    }
+
+    .info {
+        margin-bottom: 10px;
+    }
+
+    .info td {
+        padding: 2px 6px 2px 0;
+        vertical-align: top;
+    }
+
+    .info td:first-child {
+        font-weight: bold;
+    }
+
+    .tombol {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 10px 18px;
+        background: #4f46e5;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background 0.3s;
+    }
+
+    .tombol:hover {
+        background: #3730a3;
+    }
+
+    /* Card media sosial memanjang penuh */
+    #sosmed {
+        grid-column: 1 / -1;
+    }
+
+    .daftar-sosmed {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 12px;
+    }
+
+    .daftar-sosmed a {
+        display: inline-block;
+        padding: 10px 18px;
+        background: #eef2ff;
+        color: #4f46e5;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    .daftar-sosmed a:hover {
+        background: #4f46e5;
+        color: white;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+        background: #1f2937;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+    }
+
+    /* ===== RESPONSIF (HP) ===== */
+    @media (max-width: 700px) {
+        main {
+            grid-template-columns: 1fr;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+    }
+
+    header {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+    }
+
+    .video-header {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    header h1 {
+        color: white;
+
+    }
+</style>
+
+<body>
+
+    <div id="salju"></div>
+    </video>
+    <!-- bagian headder -->
+    <header>
+        <video autoplay muted loop playsinline class="vidio-header">
+            <source src="../vidio/nature-in-minecraft.3840x2160.mp4" type="video/mp4">
+        </video>
+        <h1>Tentang Saya</h1>
+        <p>Tugas 2##</p>
+        <div id="salju"></div>
+    </header>
+
+    <!-- <Bagian Navigasi -->
+    <nav>
+        <a href="#tempat-impian">Tempat Impian </a>
+        <a href="#tentang-saya">Tentang saya</a>
+        <a href="kontrol-lampu.html" target="_blank">kontrol lampu</a>
+        <a href="sosmed.html" target="_blank">Media sosial</a>
+
+        <div id="salju"></div>
+    </nav>
+    <!-- Bagian konten utama -->
+
+    <main>
+        <section class="card" id="tempat-impian">
+            <h2>Tempat Impian</h2>
+            <h3>Norway</h3>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGYoZH4C-MlDczab2THCyRFVRLZ2my_j6wI1zX9vVnUQ&s=10"
+                alt="swiss" style="width: 550px; height: 300px;">
+
+            <p>
+            </p>
+            <article>
+                <p>
+                    Norwegia (secara resmi bernama Kerajaan Norwegia) adalah negara Nordik di Semenanjung Skandinavia,
+                    Eropa Utara.
+                </p> <br>
+                <h3> Geografi dan Alam </h3> <br>
+
+                <p>• Ibu Kota: Oslo
+                    • Batas Wilayah: Berbatasan dengan Swedia, Finlandia, dan Rusia di daratan, serta dikelilingi
+                    Samudra Atlantik Utara, Laut Norwegia, dan Laut Barents.
+                    • Bentang Alam: Dikenal dengan topografi bergunung-gunung serta fjord (lembah curam hasil erosi
+                    gletser yang tergenang air laut) yang sangat terkenal.
+                    • Fenomena Alam: Menjadi salah satu lokasi terbaik untuk melihat Aurora Borealis (cahaya utara) di
+                    wilayah utara dan Matahari Tengah Malam.
+                </p> <br>
+                <h3>Pemerintahan dan Masyarakat</h3> <br>
+
+                <p>• Sistem Pemerintahan: Monarki konstitusional parlementer (dipimpin oleh Raja Harald V dan Perdana
+                    Menteri Jonas Gahr Støre).
+                    • Populasi: Sekitar 5,6 juta jiwa, menjadikannya salah satu negara dengan kepadatan penduduk
+                    terendah di Eropa.
+                    • Bahasa Resmi: Bahasa Norwegia (dengan dua standar tertulis: Bokmål dan Nynorsk) serta bahasa Sámi
+                    (digunakan oleh masyarakat adat Sami).
+                </p> <br>
+                <h3> Ekonomi dan Kesejahteraan </h3> <br>
+
+                <p> • Sumber Daya Utama: Didorong oleh sektor maritim, perikanan, tenaga air (menghasilkan hampir 90%
+                    listrik nasional), serta ekspor minyak bumi dan gas alam lepas pantai yang dikelola melalui dana
+                    kekayaan negara.
+                    • Kualitas Hidup: Norwegia konsisten berada di jajaran puncak dunia dalam hal Indeks Pembangunan
+                    Manusia (IPM), layanan kesehatan, pendidikan, serta tingkat kepercayaan masyarakat yang tinggi
+                    terhadap pemerintah dan sistem hukum.
+
+                </p>
+            </article>
+        </section>
+        <!-- Bagian smaping  -->
+        <aside class="card" id="tentang-saya">
+            <h1>Tentang Saya</h1>
+            <h3>Saya Manusai biasa yang makan nasi dari gandum 😊😊😊</h3>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRK0xjFG8xlAJQTEjWBF1X3DwuOpRLryPaIcO8BGV1sGTOivO1ZcjJuSnmp&s=10"
+                alt="saya" style="width: 550px; height: 300px;">
+            <p>
+                Nama saya : fariz
+            </p>
+            <p>
+                Alamat Saya : Bengkulu
+            </p>
+            <p>
+                Hobi Saya ; i don't khnow
+            </p>
+            <br>
+            <p>
+                Saya Orang Biasa Yang Makan nasi smama lauk 👌👌👌
+            </p>
+        </aside>
+
+
+    </main>
+    <!-- bagian footer -->
+    <footer>
+        <p>&copy; 2026 Websaite By : Fariz Gazur</p>
+    </footer>
+
+</body>
+
+</html>

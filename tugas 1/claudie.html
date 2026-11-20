@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KristalShop - Toko Game Digital</title>
+    <style>
+        :root {
+            --biru: #1e90ff;
+            --biru-tua: #0b3d91;
+            --cyan: #4fe3ff;
+            --ungu: #8a5cff;
+            --kartu: rgba(10, 30, 70, .62);
+            --garis: rgba(120, 200, 255, .35);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            color: #eaf6ff;
+            background: #06142e;
+            overflow-x: hidden
+        }
+
+        /* ===== BACKGROUND VIDEO ===== */
+        .bg {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            overflow: hidden;
+            background: linear-gradient(135deg, #06142e, #0b3d91, #5a2fc2, #0b3d91);
+            background-size: 400% 400%;
+            animation: gerak 18s ease infinite
+        }
+
+        @keyframes gerak {
+            0% {
+                background-position: 0 50%
+            }
+
+            50% {
+                background-position: 100% 50%
+            }
+
+            100% {
+                background-position: 0 50%
+            }
+        }
+
+        .bg video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: .55
+        }
+
+        .bg::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(rgba(5, 15, 40, .55), rgba(5, 15, 40, .85))
+        }
+
+        /* ===== SALJU ===== */
+        #salju {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 50
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 40;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 14px 6%;
+            background: rgba(6, 20, 46, .75);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--garis)
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 22px;
+            letter-spacing: 1px;
+            color: #fff;
+            text-shadow: 0 0 14px var(--cyan);
+            text-decoration: none
+        }
+
+        .logo span {
+            color: var(--cyan)
+        }
+
+        .menu {
+            display: flex;
+            gap: 6px;
+            list-style: none
+        }
+
+        .menu a {
+            color: #cfeaff;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 20px;
+            transition: .25s;
+            font-size: 15px
+        }
+
+        .menu a:hover {
+            background: rgba(79, 227, 255, .18);
+            color: #fff;
+            box-shadow: 0 0 14px rgba(79, 227, 255, .5)
+        }
+
+        .burger {
+            display: none;
+            background: none;
+            border: 0;
+            color: #fff;
+            font-size: 26px;
+            cursor: pointer
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            text-align: center;
+            padding: 90px 6% 50px
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 7vw, 64px);
+            line-height: 1.1;
+            font-weight: 900;
+            background: linear-gradient(90deg, #fff, var(--cyan), #fff);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            filter: drop-shadow(0 0 18px rgba(79, 227, 255, .6));
+            animation: napas 3s ease-in-out infinite
+        }
+
+        @keyframes napas {
+            50% {
+                filter: drop-shadow(0 0 32px rgba(79, 227, 255, .95))
+            }
+        }
+
+        .hero p {
+            margin: 16px auto 28px;
+            max-width: 560px;
+            color: #bfe0ff;
+            font-size: 18px
+        }
+
+        .btn {
+            display: inline-block;
+            border: 0;
+            cursor: pointer;
+            color: #fff;
+            font-weight: 700;
+            font-size: 16px;
+            text-decoration: none;
+            padding: 13px 30px;
+            border-radius: 30px;
+            background: linear-gradient(90deg, var(--biru), var(--ungu));
+            box-shadow: 0 0 20px rgba(30, 144, 255, .7);
+            transition: .25s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.04);
+            box-shadow: 0 0 34px rgba(138, 92, 255, .9)
+        }
+
+        .btn:active {
+            transform: scale(.97)
+        }
+
+        .btn.kecil {
+            padding: 9px 14px;
+            font-size: 14px;
+            width: 100%;
+            border-radius: 12px
+        }
+
+        .statistik {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 44px
+        }
+
+        .stat {
+            min-width: 130px;
+            padding: 16px 22px;
+            background: var(--kartu);
+            border: 1px solid var(--garis);
+            border-radius: 16px;
+            backdrop-filter: blur(8px)
+        }
+
+        .stat b {
+            display: block;
+            font-size: 26px;
+            color: var(--cyan);
+            text-shadow: 0 0 12px var(--cyan)
+        }
+
+        .stat small {
+            color: #9fc8ee
+        }
+
+        /* ===== SECTION ===== */
+        section {
+            padding: 50px 6%
+        }
+
+        .judul {
+            text-align: center;
+            font-size: clamp(26px, 5vw, 38px);
+            font-weight: 800;
+            margin-bottom: 8px;
+            text-shadow: 0 0 16px rgba(79, 227, 255, .7)
+        }
+
+        .sub {
+            text-align: center;
+            color: #9fc8ee;
+            margin-bottom: 28px
+        }
+
+        /* ===== EVENT / COUNTDOWN ===== */
+        .event {
+            max-width: 760px;
+            margin: auto;
+            text-align: center;
+            padding: 30px;
+            border-radius: 24px;
+            background: linear-gradient(135deg, rgba(30, 144, 255, .35), rgba(138, 92, 255, .35));
+            border: 1px solid var(--garis);
+            box-shadow: 0 0 40px rgba(79, 227, 255, .25)
+        }
+
+        .voucher {
+            display: inline-block;
+            margin: 10px 0 20px;
+            padding: 8px 18px;
+            border: 2px dashed var(--cyan);
+            border-radius: 12px;
+            font-weight: 800;
+            letter-spacing: 2px;
+            cursor: pointer;
+            transition: .2s
+        }
+
+        .voucher:hover {
+            background: rgba(79, 227, 255, .2)
+        }
+
+        .timer {
+            display: flex;
+            justify-content: center;
+            gap: 12px
+        }
+
+        .timer div {
+            width: 76px;
+            padding: 12px 0;
+            background: rgba(6, 20, 46, .7);
+            border-radius: 14px;
+            border: 1px solid var(--garis)
+        }
+
+        .timer b {
+            display: block;
+            font-size: 30px;
+            color: #fff;
+            text-shadow: 0 0 12px var(--cyan)
+        }
+
+        .timer small {
+            color: #9fc8ee;
+            font-size: 12px
+        }
+
+        /* ===== TAB KATEGORI ===== */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 28px
+        }
+
+        .tab {
+            cursor: pointer;
+            padding: 10px 22px;
+            border-radius: 30px;
+            border: 1px solid var(--garis);
+            background: var(--kartu);
+            color: #cfeaff;
+            font-size: 15px;
+            transition: .25s
+        }
+
+        .tab:hover {
+            border-color: var(--cyan)
+        }
+
+        .tab.aktif {
+            background: linear-gradient(90deg, var(--biru), var(--ungu));
+            color: #fff;
+            box-shadow: 0 0 18px rgba(30, 144, 255, .7)
+        }
+
+        /* ===== KARTU PRODUK ===== */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+            gap: 20px;
+            max-width: 1100px;
+            margin: auto
+        }
+
+        .card {
+            background: var(--kartu);
+            border: 1px solid var(--garis);
+            border-radius: 20px;
+            overflow: hidden;
+            backdrop-filter: blur(8px);
+            transition: .3s;
+            display: flex;
+            flex-direction: column
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 0 30px rgba(79, 227, 255, .45);
+            border-color: var(--cyan)
+        }
+
+        .gambar {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 62px;
+            position: relative
+        }
+
+        .diskon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff3d71;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 800;
+            padding: 4px 10px;
+            border-radius: 12px
+        }
+
+        .isi {
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            flex: 1
+        }
+
+        .isi h3 {
+            font-size: 17px
+        }
+
+        .isi p {
+            font-size: 13px;
+            color: #9fc8ee;
+            flex: 1
+        }
+
+        .harga {
+            display: flex;
+            align-items: baseline;
+            gap: 8px
+        }
+
+        .harga b {
+            font-size: 20px;
+            color: var(--cyan)
+        }
+
+        .harga s {
+            font-size: 13px;
+            color: #7f9fc2
+        }
+
+        .hide {
+            display: none
+        }
+
+        /* ===== KEUNGGULAN ===== */
+        .fitur {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            max-width: 1000px;
+            margin: auto
+        }
+
+        .fitur div {
+            padding: 24px;
+            text-align: center;
+            background: var(--kartu);
+            border: 1px solid var(--garis);
+            border-radius: 18px;
+            transition: .3s
+        }
+
+        .fitur div:hover {
+            box-shadow: 0 0 26px rgba(138, 92, 255, .6);
+            transform: translateY(-5px)
+        }
+
+        .fitur i {
+            font-style: normal;
+            font-size: 40px;
+            display: block;
+            margin-bottom: 8px
+        }
+
+        /* ===== KONTAK ===== */
+        .kontak {
+            max-width: 520px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .kontak input,
+        .kontak textarea {
+            padding: 13px 16px;
+            border-radius: 14px;
+            border: 1px solid var(--garis);
+            background: rgba(6, 20, 46, .7);
+            color: #fff;
+            font-size: 15px;
+            font-family: inherit
+        }
+
+        .kontak input:focus,
+        .kontak textarea:focus {
+            outline: none;
+            border-color: var(--cyan);
+            box-shadow: 0 0 14px rgba(79, 227, 255, .5)
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #9fc8ee;
+            border-top: 1px solid var(--garis);
+            background: rgba(6, 20, 46, .7)
+        }
+
+        /* ===== TOAST & MODAL ===== */
+        #toast {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translate(-50%, 120px);
+            z-index: 100;
+            background: #0b3d91;
+            border: 1px solid var(--cyan);
+            padding: 12px 22px;
+            border-radius: 30px;
+            box-shadow: 0 0 24px rgba(79, 227, 255, .6);
+            transition: .4s
+        }
+
+        #toast.tampil {
+            transform: translate(-50%, 0)
+        }
+
+        #modal {
+            position: fixed;
+            inset: 0;
+            z-index: 90;
+            background: rgba(0, 0, 0, .7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px
+        }
+
+        #modal.buka {
+            display: flex
+        }
+
+        .kotak {
+            width: 100%;
+            max-width: 380px;
+            padding: 28px;
+            border-radius: 22px;
+            background: #0a2150;
+            border: 1px solid var(--cyan);
+            text-align: center;
+            box-shadow: 0 0 40px rgba(79, 227, 255, .5);
+            animation: muncul .3s
+        }
+
+        @keyframes muncul {
+            from {
+                transform: scale(.8);
+                opacity: 0
+            }
+        }
+
+        .kotak h3 {
+            margin-bottom: 6px;
+            font-size: 22px
+        }
+
+        .kotak .besar {
+            font-size: 54px
+        }
+
+        .kotak .tombol {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px
+        }
+
+        .btn.abu {
+            background: #26385f;
+            box-shadow: none
+        }
+
+        @media(max-width:760px) {
+            .burger {
+                display: block
+            }
+
+            .menu {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background: rgba(6, 20, 46, .96);
+                padding: 12px 6%
+            }
+
+            .menu.buka {
+                display: flex
+            }
+
+            .timer div {
+                width: 64px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Background video (gerak) + gradien animasi sebagai cadangan -->
+    <div class="bg">
+        <video autoplay muted loop playsinline>
+            <source src="../vidio/odette-grace-of-the-white-swan.3840x2160.mp4" type="video/mp4">
+        </video>
+    </div>
+
+    <!-- Salju -->
+    <canvas id="salju"></canvas>
+
+    <!-- Navbar -->
+    <nav>
+        <a href="#beranda" class="logo">❄ Kristal<span>Shop</span></a>
+        <button class="burger" id="burger">☰</button>
+        <ul class="menu" id="menu">
+            <li><a href="#beranda">Beranda</a></li>
+            <li><a href="#event">Event</a></li>
+            <li><a href="#produk">Produk</a></li>
+            <li><a href="#keunggulan">Keunggulan</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero -->
+    <header class="hero" id="beranda">
+        <h1>TOKO GAME DIGITAL<br>TERPERCAYA</h1>
+        <p>Semua kebutuhan game kamu ada di sini. Cepat, aman, dan harga bersahabat.</p>
+        <a href="#produk" class="btn">Beli Sekarang ➜</a>
+        <div class="statistik">
+            <div class="stat"><b data-hitung="784">0</b><small>Pelanggan</small></div>
+            <div class="stat"><b data-hitung="5">0</b><small>Tahun Berdiri</small></div>
+            <div class="stat"><b>4,9 ★</b><small>Rating</small></div>
+        </div>
+    </header>
+
+    <!-- Event -->
+    <section id="event">
+        <div class="event">
+            <h2>🎉 Event Akhir Tahun</h2>
+            <div class="voucher" id="voucher" title="Klik untuk menyalin">PAKAI VOUCHER: SALJU2026</div>
+            <p style="margin-bottom:14px">Event berakhir dalam</p>
+            <div class="timer">
+                <div><b id="hari">00</b><small>Hari</small></div>
+                <div><b id="jam">00</b><small>Jam</small></div>
+                <div><b id="menit">00</b><small>Menit</small></div>
+                <div><b id="detik">00</b><small>Detik</small></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produk -->
+    <section id="produk">
+        <h2 class="judul">Produk Paling Laku</h2>
+        <p class="sub">Pilih kategori lalu klik "Beli Sekarang"</p>
+
+        <div class="tabs">
+            <button class="tab aktif" data-kat="semua">Semua</button>
+            <button class="tab" data-kat="akun">Akun</button>
+            <button class="tab" data-kat="skin">Skin</button>
+            <button class="tab" data-kat="koin">Koin</button>
+        </div>
+
+        <div class="grid" id="grid"></div>
+    </section>
+
+    <!-- Keunggulan -->
+    <section id="keunggulan">
+        <h2 class="judul">Kenapa Pilih Kami?</h2>
+        <p class="sub">Layanan terbaik untuk kamu</p>
+        <div class="fitur">
+            <div><i>⚡</i>
+                <h3>Proses Instan</h3>
+                <p>Pesanan diproses dalam hitungan menit.</p>
+            </div>
+            <div><i>🔒</i>
+                <h3>Aman</h3>
+                <p>Transaksi dan data kamu terlindungi.</p>
+            </div>
+            <div><i>💬</i>
+                <h3>Support 24/7</h3>
+                <p>Tim kami siap membantu kapan saja.</p>
+            </div>
+            <div><i>💎</i>
+                <h3>Harga Murah</h3>
+                <p>Promo dan voucher setiap hari.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontak -->
+    <section id="kontak">
+        <h2 class="judul">Hubungi Kami</h2>
+        <p class="sub">Ada pertanyaan? Kirim pesan di sini</p>
+        <form class="kontak" id="formKontak">
+            <input type="text" id="nama" placeholder="Nama kamu" required>
+            <input type="email" placeholder="Email" required>
+            <textarea rows="4" placeholder="Pesan" required></textarea>
+            <button class="btn" type="submit">Kirim Pesan</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 KristalShop. Dibuat oleh Nama Kamu.</p>
+    </footer>
+
+    <!-- Modal beli -->
+    <div id="modal">
+        <div class="kotak">
+            <div class="besar" id="mIkon"></div>
+            <h3 id="mNama"></h3>
+            <p id="mHarga" style="color:#4fe3ff;font-size:20px;font-weight:700"></p>
+            <p style="color:#9fc8ee;margin-top:8px">Lanjutkan pembelian produk ini?</p>
+            <div class="tombol">
+                <button class="btn abu kecil" id="batal">Batal</button>
+                <button class="btn kecil" id="lanjut">Ya, Beli</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="toast"></div>
+
+    <script>
+        /* ===== DATA PRODUK ===== */
+        const produk = [
+            { nama: "Akun Premium Lengkap", kat: "akun", ikon: "🎮", harga: 210000, coret: 350000, diskon: 40, warna: "#1e90ff,#0b3d91", desc: "Akun full akses, garansi aktif." },
+            { nama: "Akun Edisi Windows", kat: "akun", ikon: "🖥️", harga: 60000, coret: 100000, diskon: 40, warna: "#2ecc71,#0b6b3a", desc: "Versi PC siap pakai." },
+            { nama: "Custom Skin Karakter", kat: "skin", ikon: "🧑‍🎤", harga: 19999, coret: 35000, diskon: 43, warna: "#ff9f43,#c0392b", desc: "Skin custom sesuai request." },
+            { nama: "Render Skin HD", kat: "skin", ikon: "🖼️", harga: 12000, coret: 20000, diskon: 40, warna: "#ff6bd6,#7b2ff7", desc: "Render skin kualitas tinggi." },
+            { nama: "Paket Skin Bundle", kat: "skin", ikon: "🎁", harga: 39000, coret: 70000, diskon: 44, warna: "#feca57,#e67e22", desc: "Beberapa skin dalam satu paket." },
+            { nama: "Koin 320", kat: "koin", ikon: "🪙", harga: 49900, coret: 60000, diskon: 17, warna: "#f1c40f,#b7791f", desc: "Top up koin langsung masuk." },
+            { nama: "Koin 1000", kat: "koin", ikon: "💰", harga: 139000, coret: 170000, diskon: 18, warna: "#f39c12,#8e5a12", desc: "Lebih hemat untuk sultan." },
+            { nama: "Langganan Plus", kat: "akun", ikon: "👑", harga: 39000, coret: 60000, diskon: 35, warna: "#a29bfe,#341f97", desc: "Fitur eksklusif 30 hari." }
+        ];
+        const rupiah = n => "Rp " + n.toLocaleString("id-ID");
+
+        /* ===== RENDER KARTU ===== */
+        const grid = document.getElementById("grid");
+        produk.forEach((p, i) => {
+            const el = document.createElement("div");
+            el.className = "card";
+            el.dataset.kat = p.kat;
+            el.innerHTML = `
+    <div class="gambar" style="background:linear-gradient(135deg,${p.warna})">
+      <span class="diskon">-${p.diskon}%</span>${p.ikon}
+    </div>
+    <div class="isi">
+      <h3>${p.nama}</h3>
+      <p>${p.desc}</p>
+      <div class="harga"><b>${rupiah(p.harga)}</b><s>${rupiah(p.coret)}</s></div>
+      <button class="btn kecil" data-i="${i}">🛒 Beli Sekarang</button>
+    </div>`;
+            grid.appendChild(el);
+        });
+
+        /* ===== FILTER KATEGORI ===== */
+        document.querySelectorAll(".tab").forEach(t => {
+            t.addEventListener("click", () => {
+                document.querySelectorAll(".tab").forEach(x => x.classList.remove("aktif"));
+                t.classList.add("aktif");
+                const k = t.dataset.kat;
+                document.querySelectorAll(".card").forEach(c => {
+                    c.classList.toggle("hide", k !== "semua" && c.dataset.kat !== k);
+                });
+            });
+        });
+
+        /* ===== MODAL BELI ===== */
+        let terpilih = null;
+        const modal = document.getElementById("modal");
+        grid.addEventListener("click", e => {
+            const b = e.target.closest("button[data-i]");
+            if (!b) return;
+            terpilih = produk[b.dataset.i];
+            document.getElementById("mIkon").textContent = terpilih.ikon;
+            document.getElementById("mNama").textContent = terpilih.nama;
+            document.getElementById("mHarga").textContent = rupiah(terpilih.harga);
+            modal.classList.add("buka");
+        });
+        document.getElementById("batal").onclick = () => modal.classList.remove("buka");
+        modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("buka"); });
+        document.getElementById("lanjut").onclick = () => {
+            modal.classList.remove("buka");
+            toast("✅ " + terpilih.nama + " ditambahkan ke pesanan!");
+        };
+
+        /* ===== TOAST ===== */
+        const toastEl = document.getElementById("toast");
+        let tt;
+        function toast(teks) {
+            toastEl.textContent = teks;
+            toastEl.classList.add("tampil");
+            clearTimeout(tt);
+            tt = setTimeout(() => toastEl.classList.remove("tampil"), 2500);
+        }
+
+        /* ===== VOUCHER SALIN ===== */
+        document.getElementById("voucher").onclick = () => {
+            if (navigator.clipboard) navigator.clipboard.writeText("SALJU2026");
+            toast("🎟️ Voucher SALJU2026 disalin!");
+        };
+
+        /* ===== FORM KONTAK ===== */
+        document.getElementById("formKontak").addEventListener("submit", e => {
+            e.preventDefault();
+            toast("📨 Terima kasih " + document.getElementById("nama").value + ", pesan terkirim!");
+            e.target.reset();
+        });
+
+        /* ===== MENU HP ===== */
+        const menu = document.getElementById("menu");
+        document.getElementById("burger").onclick = () => menu.classList.toggle("buka");
+        menu.querySelectorAll("a").forEach(a => a.addEventListener("click", () => menu.classList.remove("buka")));
+
+        /* ===== COUNTDOWN (7 hari dari sekarang) ===== */
+        const akhir = Date.now() + 7 * 24 * 60 * 60 * 1000;
+        function hitung() {
+            let s = Math.max(0, Math.floor((akhir - Date.now()) / 1000));
+            const d = Math.floor(s / 86400); s %= 86400;
+            const j = Math.floor(s / 3600); s %= 3600;
+            const m = Math.floor(s / 60); s %= 60;
+            const dua = n => String(n).padStart(2, "0");
+            document.getElementById("hari").textContent = dua(d);
+            document.getElementById("jam").textContent = dua(j);
+            document.getElementById("menit").textContent = dua(m);
+            document.getElementById("detik").textContent = dua(s);
+        }
+        hitung(); setInterval(hitung, 1000);
+
+        /* ===== ANGKA NAIK (statistik) ===== */
+        document.querySelectorAll("[data-hitung]").forEach(el => {
+            const target = +el.dataset.hitung;
+            let n = 0;
+            const step = Math.max(1, Math.ceil(target / 60));
+            const iv = setInterval(() => {
+                n += step;
+                if (n >= target) { n = target; clearInterval(iv); }
+                el.textContent = n + (target > 100 ? "k+" : " thn");
+            }, 25);
+        });
+
+        /* ===== SALJU (canvas) ===== */
+        const cv = document.getElementById("salju");
+        const cx = cv.getContext("2d");
+        let W, H, flakes = [];
+        function ukur() { W = cv.width = innerWidth; H = cv.height = innerHeight; }
+        ukur(); addEventListener("resize", ukur);
+        const JUMLAH = innerWidth < 600 ? 70 : 140;
+        for (let i = 0; i < JUMLAH; i++) {
+            flakes.push({
+                x: Math.random() * innerWidth, y: Math.random() * innerHeight,
+                r: Math.random() * 3 + 1, v: Math.random() * 1 + .5, a: Math.random() * Math.PI * 2
+            });
+        }
+        function salju() {
+            cx.clearRect(0, 0, W, H);
+            cx.fillStyle = "rgba(255,255,255,.9)";
+            cx.shadowColor = "#bfefff"; cx.shadowBlur = 8;
+            flakes.forEach(f => {
+                cx.beginPath(); cx.arc(f.x, f.y, f.r, 0, Math.PI * 2); cx.fill();
+                f.y += f.v; f.a += .01; f.x += Math.sin(f.a) * .6;
+                if (f.y > H + 5) { f.y = -5; f.x = Math.random() * W; }
+            });
+            requestAnimationFrame(salju);
+        }
+        salju();
+    </script>
+</body>
+
+</html>

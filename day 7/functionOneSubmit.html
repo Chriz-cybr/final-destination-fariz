@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Formulir Pendaftaran</h2>
+
+    <form onsubmit="return validasiform()">
+        <label for="Name">Nama:</label>
+
+        <input type="text" id="Nama" name="Nama">
+        <br><br>
+        <input type="submit" value="Kirim">
+
+    </form>
+
+    <script>
+        function validasiform() {
+            let nama = document.getElementById("Nama").value;
+
+            if (nama === "") {
+                alert("nama harus di isi wajib");
+                return false;
+            }
+
+            alert("selamat datang, " + nama + "!");
+            return true;
+        }
+
+    </script>
+</body>
+
+</html>

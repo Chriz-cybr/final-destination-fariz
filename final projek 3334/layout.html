@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <div class="salju"></div>
+    <header>
+        <h1>Tentang Saya</h1>
+        <p>Tugas 2##</p>
+        <div id="salju"></div>
+    </header>
+
+    <!-- <Bagian Navigasi -->
+    <nav>
+        <a href="#tempat-impian">Tempat Impian </a>
+        <a href="#tentang-saya">Tentang saya</a>
+        <a href="lampu4.html" target="_blank">kontrol lampu</a>
+        <a href="media.html" target="_blank">Media sosial</a>
+        <a href="table.html"> Table </a>
+
+        <div id="salju"></div>
+    </nav>
+    <!-- Bagian konten utama -->
+
+    <main>
+        <section class="card" id="tempat-impian">
+            <h2>Tempat Impian</h2>
+            <h3>Norway</h3>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGYoZH4C-MlDczab2THCyRFVRLZ2my_j6wI1zX9vVnUQ&s=10"
+                alt="swis  class=" img1">
+
+            <p>
+            </p>
+            <article>
+                <p>
+                    Norwegia (secara resmi bernama Kerajaan Norwegia) adalah negara Nordik di Semenanjung Skandinavia,
+                    Eropa Utara.
+                </p> <br>
+                <h3> Geografi dan Alam </h3> <br>
+
+                <p>• Ibu Kota: Oslo
+                <p>• Batas Wilayah: Berbatasan dengan Swedia, Finlandia, dan Rusia di daratan, serta dikelilingi
+                    Samudra Atlantik Utara, Laut Norwegia, dan Laut Barents.</p>
+                <p>• Bentang Alam: Dikenal dengan topografi bergunung-gunung serta fjord (lembah curam hasil erosi
+                    gletser yang tergenang air laut) yang sangat terkenal.</p>
+                <p>• Fenomena Alam: Menjadi salah satu lokasi terbaik untuk melihat Aurora Borealis (cahaya utara) di
+                    wilayah utara dan Matahari Tengah Malam.</p>
+                </p> <br>
+                <h3>Pemerintahan dan Masyarakat</h3> <br>
+
+                <p>• Sistem Pemerintahan: Monarki konstitusional parlementer (dipimpin oleh Raja Harald V dan Perdana
+                    Menteri Jonas Gahr Støre).</p>
+                <p>• Populasi: Sekitar 5,6 juta jiwa, menjadikannya salah satu negara dengan kepadatan penduduk
+                    terendah di Eropa.
+                <p>
+                <p>• Bahasa Resmi: Bahasa Norwegia (dengan dua standar tertulis: Bokmål dan Nynorsk) serta bahasa Sámi
+                    (digunakan oleh masyarakat adat Sami).</p>
+                </p> <br>
+                <h3> Ekonomi dan Kesejahteraan </h3> <br>
+
+                <p> • Sumber Daya Utama: Didorong oleh sektor maritim, perikanan, tenaga air (menghasilkan hampir 90%
+                    listrik nasional), serta ekspor minyak bumi dan gas alam lepas pantai yang dikelola melalui dana
+                    kekayaan negara.</p>
+                <p> • Kualitas Hidup: Norwegia konsisten berada di jajaran puncak dunia dalam hal Indeks Pembangunan
+                    Manusia (IPM), layanan kesehatan, pendidikan, serta tingkat kepercayaan masyarakat yang tinggi
+                    terhadap pemerintah dan sistem hukum.
+
+                </p>
+            </article>
+        </section>
+        <!-- Bagian smaping  -->
+        <aside class=" card" id="tentang-saya">
+            <h1>Tentang Saya</h1>
+            <h3>Saya Manusai biasa yang makan nasi dari gandum 😊😊😊</h3>
+
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRERoZHdMmWo4jgNRN6jO8JYfDNOBAOtUREzw99Hh1c3g&s=10"
+                alt="saya" class="img2">
+            <p>
+                Nama saya : fariz
+            </p>
+            <p>
+                Alamat Saya : Bengkulu
+            </p>
+            <p>
+                Hobi Saya ; i don't khnow
+            </p>
+            <br>
+            <p>
+                Saya Orang Biasa Yang Makan nasi smama lauk 👌👌👌
+            </p>
+        </aside>
+
+
+    </main>
+    <!-- bagian footer -->
+    <footer>
+        <p>&copy; 2026 Websaite By : Fariz Gazur</p>
+    </footer>
+
+
+    <script>
+        const wadah = document.querySelector(".salju");
+
+        for (let i = 0; i < 50; i++) {
+            const serpihan = document.createElement("span");
+
+            serpihan.textContent = "🤓☝️";
+            serpihan.style.left = Math.random() * 100 + "vw";
+            serpihan.style.fontSize = (Math.random() * 14 + 8) + "px";
+            serpihan.style.opacity = Math.random() * 0.6 + 0.4;
+            serpihan.style.animationDuration = (Math.random() * 6 + 6) + "s";
+            serpihan.style.animationDelay = (-Math.random() * 10) + "s";
+
+            wadah.appendChild(serpihan);
+        }
+    </script>
+</body>
+
+</html>

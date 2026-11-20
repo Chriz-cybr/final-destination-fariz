@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="tampilkanArray()">
+    <h1>Hewan Hewan Berkela</h1>
+    <p id="pertama"></p>
+    <p id="kedua"></p>
+    <p id="hapus"></p>
+    <p id="hapusPertama"></p>
+    <p id="panjang"></p>
+    <p id="semuaBuah"></p>
+    <script>
+        function tampilkanArray() {
+
+            var hewan = ["Naga", "Srigala", "Rubah", "harimauwww", "Kecabung", "Musasaurus", "Dino khas kalimantan", "Labibi", "Summer"];
+
+            document.getElementById("pertama").innerHTML = "hewan pertama: " + hewan[0];
+            document.getElementById("kedua").innerHTML = "Hewan Kedua: " + hewan[1];
+            hewan.push("Leviatan");
+
+            var buahTerakhir = hewan.pop();
+
+            var buahPertama = hewan.shift();
+
+            document.getElementById("hapus").innerHTML = "Hewan Akhir Yang di hapus: " + buahTerakhir;
+
+            document.getElementById("hapusPertama").innerHTML = "Hewan Pertama Yang Di Hapus: " + buahPertama
+
+            document.getElementById("panjang").innerHTML = "Total Hewan Setelah Pengahpusan: " + hewan.length;
+            document.getElementById("semuaBuah").innerHTML = "Semua Hewan: " + hewan.join(",  ");
+
+
+
+
+
+
+
+        }
+
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

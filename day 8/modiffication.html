@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- JIKA MODIF FACTION PERTAMA TIDAK BISA MAKA PAKAI INI -->
+
+<body>
+    <script>
+        // mengubah konten id div
+        let myDiv = document.getElementById('myDiv');
+        myDiv.textContent = 'Hello, javascrip !';
+
+        // mengubah atribut src dan alt gambar
+        document.getElementById("myImage").setAttribute(
+            "src",
+            "../"
+        )
+
+        document.getElementById("myImage").setAttribute(
+            "alt",
+            ""
+        )
+
+        // mengubah properti css elemen
+        let div = document.getElementById("myBox");
+        div.style.backgroundColor = "lightgreen";
+        div.style.width = "200px";
+        div.style.height = "200px";
+    </script>
+</body>
+
+</html>

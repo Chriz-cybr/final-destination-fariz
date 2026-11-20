@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2>Kontrol Lampu</h2>
+
+        <img id="gambarLampu" src="../img/LampuOFF.jpg" alt="Lampu Mati">
+
+        <p id="statusLampu">Status: Mati</p>
+
+        <button id="tombolLampu" onclick="nyalakanLampu()">Nyalakan Lampu</button>
+
+        <!-- TEKS TIMER HITUNG MUNDUR -->
+        <p id="infoDurasi">Lampu akan otomatis mati dalam 5 detik.</p>
+        <p id="timerHitungMundur"></p>
+    </div>
+
+
+    <script>
+        let intervalTimer = null; // untuk menyimpan timer agar bisa dihentikan
+
+        function nyalakanLampu() {
+            // 1. Ambil elemen
+            let gambar = document.getElementById("gambarLampu");
+            let status = document.getElementById("statusLampu");
+            let timerText = document.getElementById("timerHitungMundur");
+            let tombol = document.getElementById("tombolLampu");
+
+            // 2. Ubah gambar jadi lampu menyala
+            gambar.src = "../img/lampuON.jpg";
+            gambar.alt = "Lampu Menyala";
+            status.innerHTML = "Status: Menyala";
+
+            // Nonaktifkan tombol selama lampu menyala (supaya timer tidak dobel)
+            tombol.disabled = true;
+
+            // 3. Timer hitung mundur
+            let sisaWaktu = 5; // dalam detik
+            timerText.innerHTML = "Lampu mati dalam: " + sisaWaktu + " detik";
+
+            // Hentikan timer lama jika masih ada
+            clearInterval(intervalTimer);
+
+            intervalTimer = setInterval(function () {
+                sisaWaktu--;
+
+                if (sisaWaktu > 0) {
+                    timerText.innerHTML = "Lampu mati dalam: " + sisaWaktu + " detik";
+                } else {
+                    // Waktu habis: hentikan timer dan matikan lampu
+                    clearInterval(intervalTimer);
+
+                    gambar.src = "../img/LampuOFF.jpg";
+                    gambar.alt = "Lampu Mati";
+                    status.innerHTML = "Status: Mati";
+                    timerText.innerHTML = "Lampu sudah mati.";
+                    tombol.disabled = false; // aktifkan tombol lagi
+                }
+            }, 1000); // jalan setiap 1000 ms = 1 detik
+        }
+    </script>
+    <script>
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

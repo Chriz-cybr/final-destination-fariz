@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="myClass">First Element</div>
+    <div class="myClass">Second Element</div>
+    <div class="myClass">Third Element</div>
+
+    <script>
+        // hanya mengambil elemant pertama yang cokcok
+        let elemant = document.querySelector('.myClass');
+        console.log(elemant.textContent); // output : first element
+
+        let elemants = document.querySelectorAll('.myClass');
+        console.log(elemants[2].textContent); // output : second element
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>

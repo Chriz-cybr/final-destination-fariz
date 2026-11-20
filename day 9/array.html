@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="tampilkanArray()">
+    <h1>Conatoh Array di javascrip</h1>
+    <p id="pertama"></p>
+    <p id="kedua"></p>
+    <p id="hapus"></p>
+    <p id="hapusPertama"></p>
+    <p id="panjang"></p>
+    <p id="semuaBuah"></p>
+    <script>
+
+        function tampilkanArray() {
+            // membuat Array sederhana berisi nama nama buah
+            var buah = ["Apel", "Pisang", "Jeruk", "Mangga"];
+            // mengakses eleman dari array 
+            document.getElementById("pertama").innerHTML = "Buah Pertama: " + buah[0];
+            document.getElementById("kedua").innerHTML = "Buah Kedua: " + buah[1];
+            // menambahkan buah baru ke array  
+            buah.push("Nanas");    //push di gunakan untuk menambahkan item 
+            //menghapus -buah trakhir dari array menggunakan pop
+            var buahTerakhir = buah.pop(); // 'pop' di gunakan untuk menhapus buah trakhir
+            //menghapus buah pertama dari array menggunakan pop
+            var buahPertama = buah.shift(); // 'shift' di gunakan untukmenghapus buah pertama 
+            //menampilakan hasil setelah menghapus buah terakhir 
+            document.getElementById("hapus").innerHTML = "Buah Terakhir Yang Di Hapus: " + buahTerakhir;
+            // menampilkan hasil setelah menghapus buah pertama 
+            document.getElementById("hapusPertama").innerHTML = "Buah Pertama Yang Di Hapus: " + buahPertama
+            // menampilkan panjang dan semua element nya 
+            document.getElementById("panjang").innerHTML = "Total Buah Setelah Pengahpusan: " + buah.length; // 'lenght' di gunakan untuk menghilangkan jumllah buah yang tersisa q 
+            document.getElementById("semuaBuah").innerHTML = "Semua Buah: " + buah.join(", ");
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Biodata Siswa</h1>
+
+    <!-- Instruksi 2: 3 elemen div dengan class identitas -->
+    <div class="identitas">Nama: Andi</div>
+    <div class="identitas">Kelas: XI TKJ</div>
+    <div class="identitas">Jurusan: Teknik Komputer dan Jaringan</div>
+
+    <h2>Masukkan Nama Siswa</h2>
+
+    <!-- Instruksi 4: Input nama -->
+    <input type="text" id="inputNama">
+
+    <!-- Instruksi 5 & 7: Tombol onclick -->
+    <button onclick="tampilkanData()">Tampilkan Biodata</button>
+
+    <h2>Hasil Biodata</h2>
+
+    <!-- Instruksi 3: Elemen ID hasil (Kosong dulu) -->
+    <div id="hasil"></div>
+
+    <script>
+        // Instruksi 6: Function untuk menjalankan program
+        function tampilkanData() {
+
+            // Instruksi 8: Ambil elemen class identitas (kita simpan di variabel)
+            let dataIdentitas = document.getElementsByClassName("identitas");
+
+            // Instruksi 9: Ambil elemen ID hasil
+            let tempatHasil = document.getElementById("hasil");
+
+            // Instruksi 10: Ambil nama dari input
+            let namaSiswa = document.getElementById("inputNama").value;
+
+            // Instruksi 11: If-else cek nama kosong atau engga
+            if (namaSiswa === "") {
+                // Instruksi 12: Kalau kosong, munculin alert
+                alert("Nama belum diisi, isi dulu ya!");
+
+                // Instruksi 14: Return biar program berhenti
+                return;
+            } else {
+                // Instruksi 13: Kalau diisi, tampilkan pakai innerHTML
+                tempatHasil.innerHTML = "Nama: " + namaSiswa + "<br>Kelas: XI TKJ<br>Jurusan: Teknik Komputer dan Jaringan";
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

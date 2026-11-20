@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Saya - Fariz</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        /* perpindahan menu jadi mulus */
+    }
+
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        background: #f0f2f5;
+        color: #333;
+        line-height: 1.6;
+    }
+
+    /* ===== HEADER ===== */
+    header {
+        background: linear-gradient(135deg, #4f46e5, #9333ea);
+        color: white;
+        text-align: center;
+        padding: 60px 20px;
+    }
+
+    header h1 {
+        font-size: 2.4rem;
+        margin-bottom: 8px;
+    }
+
+    header p {
+        font-size: 1.1rem;
+        opacity: 0.9;
+    }
+
+    /* ===== NAVBAR ===== */
+    nav {
+        background: #1f2937;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+    }
+
+    nav ul {
+        list-style: none;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 16px 22px;
+        transition: background 0.3s;
+    }
+
+    nav a:hover {
+        background: #4f46e5;
+    }
+
+    /* ===== KONTEN / CARD ===== */
+    main {
+        max-width: 1000px;
+        margin: 30px auto;
+        padding: 0 20px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .card {
+        background: white;
+        border-radius: 14px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s;
+        scroll-margin-top: 70px;
+        /* supaya tidak ketutup navbar */
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card img {
+        width: 100%;
+        height: 220px;
+        object-fit: cover;
+        display: block;
+        background: #ddd;
+    }
+
+    .isi {
+        padding: 20px;
+    }
+
+    .isi h2 {
+        color: #4f46e5;
+        margin-bottom: 8px;
+    }
+
+    .isi h3 {
+        margin-bottom: 8px;
+    }
+
+    .info {
+        margin-bottom: 10px;
+    }
+
+    .info td {
+        padding: 2px 6px 2px 0;
+        vertical-align: top;
+    }
+
+    .info td:first-child {
+        font-weight: bold;
+    }
+
+    .tombol {
+        display: inline-block;
+        margin-top: 12px;
+        padding: 10px 18px;
+        background: #4f46e5;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        transition: background 0.3s;
+    }
+
+    .tombol:hover {
+        background: #3730a3;
+    }
+
+    /* Card media sosial memanjang penuh */
+    #sosmed {
+        grid-column: 1 / -1;
+    }
+
+    .daftar-sosmed {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        margin-top: 12px;
+    }
+
+    .daftar-sosmed a {
+        display: inline-block;
+        padding: 10px 18px;
+        background: #eef2ff;
+        color: #4f46e5;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background 0.3s, color 0.3s;
+    }
+
+    .daftar-sosmed a:hover {
+        background: #4f46e5;
+        color: white;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+        background: #1f2937;
+        color: white;
+        text-align: center;
+        padding: 20px;
+        margin-top: 30px;
+    }
+
+    /* ===== RESPONSIF (HP) ===== */
+    @media (max-width: 700px) {
+        main {
+            grid-template-columns: 1fr;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+    }
+</style>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <h1>Media Fariz Gazur</h1>
+
+    </header>
+
+    <!-- ================= NAVBAR ================= -->
+    <nav>
+        <ul>
+            <li><a href="layout.html">Beranda</a></li>
+
+        </ul>
+    </nav>
+
+    <!-- ================= KONTEN UTAMA ================= -->
+    <main>
+
+        <!-- CARD 1: TEMPAT IMPIAN -->
+        <section class="card" id="tempat">
+            <!-- Ganti nama file gambar sesuai gambar tempat impianmu -->
+            <img src="data:image/png;base64,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"
+                alt="Tempat Impian">
+            <div class="isi">
+                <h2>TikTok</h2>
+                <h3>Cumiriz</h3>
+                <p>
+                    Akun Utama saya
+                </p>
+                <a class="tombol" href="https://www.tiktok.com/@chrizzee3?is_from_webapp=1&sender_device=pc"
+                    target="_blank">Akun
+                    TikTok 🎶</a>
+            </div>
+        </section>
+
+        <!-- CARD 2: TENTANG SAYA -->
+        <section class="card" id="tentang">
+            <!-- Ganti nama file gambar dengan fotomu -->
+            <img src="data:image/jpeg;base64,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"
+                alt="Foto Saya">
+            <div class="isi">
+                <h2>Instagram</h2>
+                <table class="info">
+                    <tr>
+                        <td>Nama</td>
+                        <td>: Venus</td>
+                    </tr>
+
+                </table>
+                <p>Instagram</p>
+                <a class="tombol"
+                    href="https://www.instagram.com/venus?utm_source=ig_web_button_share_sheet&cplk=ZDNlZDc0MzIxNw=="
+                    target="_blank">Instagram 📷</a>
+            </div>
+        </section>
+
+        <!-- CARD 3: PROJECT KONTROL LAMPU -->
+        <section class="card" id="lampu">
+            <img src="data:image/png;base64,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"
+                alt="Ilustrasi Project Kontrol Lampu">
+            <div class="isi">
+                <h2>YouTube</h2>
+
+                <p>
+                    Accont yutube ku
+                </p>
+
+                <a class="tombol" href="http://www.youtube.com/@CoComelon" target="_blank">My Yutube ▶️</a>
+            </div>
+        </section>
+
+        <!-- CARD 4: INFORMASI MEDIA SOSIAL -->
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer>
+        <p>&copy; 2026 Fariz. Dibuat untuk Final Project Kelas Prabootcamp.</p>
+    </footer>
+
+</body>
+
+</html>

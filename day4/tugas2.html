@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h2>Variabel</h2>
+
+    <p id="aritmatika"></p>
+    <p id="perbandingan"></p>
+
+
+    <script>
+
+        var a = 100;
+        var b = 3;
+        var hasilAritmatika = "hasil penjumlahan :" + (a + b) + "<br>" +
+            "hasil pengurangan: " + (a - b) + "<br>" +
+            "hasil perkalian: " + (a * b) + "<br>" +
+            "hasil pembagian: " + (a / b) + "<br>" +
+            "hasil sisa bagi: " + (a % b);
+        document.getElementById("aritmatika").innerHTML = hasilAritmatika;
+
+        var hasilPerbandingan = "Apakah a lebih besar dari b? " + (a > b) + "<br>" +
+            "Apakah a lebih kecil dari b? " + (a < b) + "<br>" +
+            "Apakah a sama dengan b? " + (a == b) + "<br>" +
+            "Apakah a tidak sama dengan b? " + (a != b) + "<br>"
+        "Apakah a lebih besar atau sama dengan b? " + (a >= b) + "<br>" +
+            "Apakah a lebih kecil atau sama dengan b? " + (a <= b);
+        document.getElementById("perbandingan").innerHTML = "hasil Perbandingan:<br>" + hasilPerbandingan;
+    </script>
+</body>
+
+</html>

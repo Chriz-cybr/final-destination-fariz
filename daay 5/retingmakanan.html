@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reting Makanan Fachriz</title>
+</head>
+
+<body>
+    <h2>Reting Makanan</h2>
+
+    <label for="reting">Masukkan reting</label>
+    <input type="number" id="nilai" placeholder="Masukkan reting">
+    <button onclick="cekRASA()">cek nilai</button>
+
+    <p id="hasil"></p>
+
+    <script>
+        let kelas = identitas[1].textContent;
+        let jurusan = identitas[2].textContent;
+        function cekRASA() {
+
+            var reting = Number(document.getElementById("nilai").value);
+            var hasil = "";
+
+            if (reting >= 9) {
+                hasil = "Wenak Banget apalagi kalo Geratis.";
+            } else if (reting >= 7) {
+                hasil = "mayan enak.";
+            } else if (reting >= 5) {
+                hasil = "Masih Bisa di bilang enak.";
+            } else if (reting >= 3) {
+                hasil = "boring enak mi ayam.";
+            } else {
+                hasil = "ga enak mending jual baju";
+            }
+
+            document.getElementById("hasil").innerHTML = hasil;
+        }
+
+
+
+    </script>
+</body>
+
+</html>
